@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Jogo Pedra, Papel, Tesoura</title>
+    <style>
+     /* Estilização geral */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Container do jogo */
+    form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        text-align: left;
+    }
+
+    /* Títulos */
+    h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    /* Espaçamento entre os inputs */
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    /* Botão de envio */
+    input[type="submit"] {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+
+    /* Resultado e placar */
+    div {
+        margin-top: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #555;
+    }
+
+    h3 {
+        margin-top: 15px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <h3>Placar:</h3>
+    <p>Jogador 1: {{ placar1 }}</p>
+    <p>Jogador 2: {{ placar2 }}</p>
+    <p>{{terminar}}</p>
+
+    <form method="POST">
+        <div>
+            <h3>Jogador 1:</h3>
+            <input type="checkbox" id="jogador1_escolha" name="jogador1_escolha" value="pedra">
+            <label for="jogador1_escolha">pedra</label>
+            <input type="checkbox" id="jogador1_escolha" name="jogador1_escolha" value="papel">
+            <label for="jogador1_escolha">papel</label>
+            <input type="checkbox" id="jogador1_escolha" name="jogador1_escolha" value="tesoura">
+            <label for="jogador1_escolha">tesoura</label>
+            
+        </div>
+
+        <div>
+            <h3>Jogador 2:</h3>
+            <input type="checkbox" id="jogador2_escolha" name="jogador2_escolha" value="pedra">
+            <label for="jogador2_escolha">pedra</label>
+            <input type="checkbox" id="jogador2_escolha" name="jogador2_escolha" value="papel">
+            <label for="jogador2_escolha">papel</label>
+            <input type="checkbox" id="jogador2_escolha" name="jogador2_escolha" value="tesoura">
+            <label for="jogador2_escolha">tesoura</label><br><br>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+
+    <div>
+        {% if res %}
+            <p>Resultado: {{ res }}</p>
+            <p>Jogador 1 escolheu: {{ jogador1_escolha }}</p>
+            <p>Jogador 2 escolheu: {{ jogador2_escolha }}</p><br>
+        {% endif %}
+    </div>
+
+    
+
+</body>
+</html>
